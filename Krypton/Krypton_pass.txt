@@ -1,0 +1,42 @@
+===========================================================
+                        Krypton
+===========================================================
+
+ Connection : ssh krypton1@krypton.labs.overthewire.org -p 2231
+
+krypton1 : KRYPTONISGREAT
+ ( 
+   cat krypton2 | tr [A-Z] [N-ZA-M] ;  # or ROT 13
+   LEVEL TWO PASSWORD ROTTEN  
+ )
+
+krypton2 : ROTTEN
+ ( 
+ 	ROT 12  is applied 
+ )
+
+krypton3 : CAESARISEASY
+ ( 
+ 	use online decoder -> quipqiup   # Frequency analysis
+ )
+
+krypton4 : BRUTE
+ ( 
+ 	python script -> krypton4.py     
+ )
+
+krypton5 : CLEARTEXT
+ ( 
+ 	python script -> krypton5.py 
+ )
+
+krypton6 : RANDOM
+ (
+  watch images and script Krypton6.py
+ )
+
+krypton7 : LFSRISNOTRANDOM
+
+==================================================================
+                       Krypton Finishes !
+==================================================================
